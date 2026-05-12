@@ -9,7 +9,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<BaseLayout title="Blog — Tim Whitehead">
+<BaseLayout title="Blog — Brooks Marshall">
   <PageHeader title="Blog" subtitle="Development logs, writing updates, and thoughts on the craft." />
   {posts.length === 0 ? (
     <p class="text-base-300 italic">Posts coming soon.</p>

@@ -6,6 +6,6 @@ tags: ["meta", "update"]
 draft: false
 ---
 
-This is the first post on the new Tim Whitehead author site. More to come — development logs, writing updates, short fiction, and the story behind the Steadfast Universe.
+This is the first post on the new Brooks Marshall author site. More to come — development logs, writing updates, short fiction, and the story behind the Steadfast Universe.
 
 Stay tuned.
