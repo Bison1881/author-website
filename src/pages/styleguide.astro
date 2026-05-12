@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import PostCard from '../components/PostCard.astro';
+---
+
+<BaseLayout title="Style Guide — Tim Whitehead">
+  <PageHeader title="Style Guide" subtitle="Visual reference for site elements. This page is unlisted." />
+
+  <div class="space-y-12">
+    <section>
+      <h2 class="font-ui text-xl font-semibold text-accent-500 mb-4">Typography</h2>
+      <div class="space-y-3">
+        <h1 class="font-ui text-4xl font-bold tracking-tight text-accent-500">Heading 1 (UI font)</h1>
+        <h2 class="font-ui text-3xl font-bold text-accent-500">Heading 2</h2>
+        <h3 class="font-ui text-2xl font-semibold text-accent-500">Heading 3</h3>
+        <h4 class="font-ui text-xl font-semibold text-accent-500">Heading 4</h4>
+        <p class="leading-relaxed">
+          Body text in the serif font. The land stretched out before him like a promise — endless,
+          sun-scorched, and unforgiving. He'd ridden three days without rest, and the horse beneath
+          him was as tired as his faith. But the mission wasn't done. Not yet.
+        </p>
+        <p class="text-base-300">Muted secondary text for dates, captions, and metadata.</p>
+        <p class="text-sm text-base-300">Small text for fine print and timestamps.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="font-ui text-xl font-semibold text-accent-500 mb-4">Colors</h2>
+      <div class="grid grid-cols-4 gap-3">
+        <div class="space-y-2 text-center text-sm">
+          <div class="h-16 rounded bg-base-900"></div>
+          <span>base-900</span>
+        </div>
+        <div class="space-y-2 text-center text-sm">
+          <div class="h-16 rounded bg-base-800"></div>
+          <span>base-800</span>
+        </div>
+        <div class="space-y-2 text-center text-sm">
+          <div class="h-16 rounded bg-base-600"></div>
+          <span>base-600</span>
+        </div>
+        <div class="space-y-2 text-center text-sm">
+          <div class="h-16 rounded bg-base-500"></div>
+          <span>base-500</span>
+        </div>
+        <div class="space-y-2 text-center text-sm">
+          <div class="h-16 rounded bg-base-300"></div>
+          <span>base-300</span>
+        </div>
+        <div class="space-y-2 text-center text-sm">
+          <div class="h-16 rounded bg-base-100"></div>
+          <span>base-100</span>
+        </div>
+        <div class="space-y-2 text-center text-sm">
+          <div class="h-16 rounded bg-base-50"></div>
+          <span>base-50</span>
+        </div>
+        <div class="space-y-2 text-center text-sm">
+          <div class="h-16 rounded bg-accent-500"></div>
+          <span>accent-500</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="font-ui text-xl font-semibold text-accent-500 mb-4">Links</h2>
+      <p>
+        A <a href="#" class="text-accent-500 hover:text-accent-400 underline transition-colors">standard link</a> in body text.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="font-ui text-xl font-semibold text-accent-500 mb-4">Post Card</h2>
+      <PostCard
+        title="Sample Post Title"
+        description="A brief description of the post that gives readers a reason to click through."
+        pubDate={new Date('2026-05-12')}
+        href="#"
+      />
+    </section>
+
+    <section>
+      <h2 class="font-ui text-xl font-semibold text-accent-500 mb-4">Prose (Blog Content)</h2>
+      <div class="prose prose-invert max-w-none prose-headings:font-ui prose-headings:text-accent-500 prose-a:text-accent-500">
+        <h3>A Subheading in Prose</h3>
+        <p>
+          The town had no name worth remembering. Just a crossroads, a church with a cracked bell,
+          and a general store that sold more whiskey than flour. But it was here that everything changed.
+        </p>
+        <blockquote>
+          "Stand firm then, with the belt of truth buckled around your waist."
+        </blockquote>
+        <p>
+          He pushed through the door and let his eyes adjust. The room was darker than the night outside.
+        </p>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

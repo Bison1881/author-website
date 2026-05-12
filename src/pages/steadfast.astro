@@ -1,14 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
 ---
 
 <BaseLayout title="The Steadfast Universe — Tim Whitehead">
-  <section class="space-y-6">
-    <h1 class="text-3xl font-bold tracking-tight">The Steadfast Universe</h1>
-    <p class="text-lg text-gray-600 leading-relaxed">
+  <PageHeader title="The Steadfast Universe" subtitle="Where the West meets the modern world — and faith is tested." />
+  <div class="space-y-4 leading-relaxed">
+    <p>
       A landing page for the Steadfast Universe — the setting, the stories, and what
       to expect from the series.
     </p>
-    <p class="text-gray-500 italic">Full content coming soon.</p>
-  </section>
+    <p class="text-base-300 italic">Full content coming soon.</p>
+  </div>
 </BaseLayout>

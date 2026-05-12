@@ -1,40 +1,40 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
 ---
 
 <BaseLayout title="Tim Whitehead — Author">
-  <section class="space-y-6">
-    <h1 class="text-3xl font-bold tracking-tight">Welcome</h1>
-    <p class="text-lg text-gray-600 leading-relaxed">
-      I'm Tim Whitehead, author of the Steadfast Universe — a novel series exploring
-      faith, resilience, and the cost of standing firm. This site is where I share
-      development logs, short fiction, and updates on the journey toward publication.
+  <section class="space-y-8">
+    <div>
+      <h1 class="font-ui text-4xl font-bold tracking-tight text-accent-500">Tim Whitehead</h1>
+      <p class="mt-1 font-ui text-lg text-base-300">Author of the Steadfast Universe</p>
+    </div>
+    <p class="text-lg leading-relaxed">
+      Welcome. This is where I share development logs, short fiction, and updates
+      on the journey toward publication — stories of faith, resilience, and the
+      cost of standing firm.
     </p>
     <div class="pt-4">
-      <h2 class="text-xl font-semibold mb-4">Latest Posts</h2>
+      <h2 class="font-ui text-xl font-semibold text-accent-500 mb-4">Latest Posts</h2>
       {posts.length === 0 ? (
-        <p class="text-gray-500 italic">Posts coming soon.</p>
+        <p class="text-base-300 italic">Posts coming soon.</p>
       ) : (
-        <ul class="space-y-4">
+        <div class="space-y-2">
           {posts.map((post) => (
-            <li>
-              <a href={`/blog/${post.id}`} class="block group">
-                <h3 class="font-semibold group-hover:text-gray-600 transition-colors">
-                  {post.data.title}
-                </h3>
-                <time class="text-sm text-gray-500" datetime={post.data.pubDate.toISOString()}>
-                  {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-                </time>
-                <p class="text-gray-600 mt-1">{post.data.description}</p>
-              </a>
-            </li>
+            <PostCard
+              title={post.data.title}
+              description={post.data.description}
+              pubDate={post.data.pubDate}
+              href={`${base}/blog/${post.id}`}
+            />
           ))}
-        </ul>
+        </div>
       )}
     </div>
   </section>
