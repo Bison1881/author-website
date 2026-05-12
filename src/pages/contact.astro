@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+---
+
+<BaseLayout title="Contact — Brooks Marshall">
+  <PageHeader title="Contact" subtitle="Get in touch." />
+  <div class="space-y-6 leading-relaxed">
+    <p>
+      Have a question, want to talk about the Steadfast Universe, or just want to say hello?
+      I'd love to hear from you.
+    </p>
+    <p>
+      <a
+        href="mailto:contact@brooksmarshall.com"
+        class="font-ui font-semibold text-accent-500 hover:text-accent-400 underline transition-colors"
+      >
+        contact@brooksmarshall.com
+      </a>
+    </p>
+    <p class="text-base-300 text-sm italic">
+      Replace this with your preferred contact email.
+    </p>
+  </div>
+</BaseLayout>

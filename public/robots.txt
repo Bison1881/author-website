@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://Bison1881.github.io/author-website/sitemap-index.xml
