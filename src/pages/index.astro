@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<BaseLayout title="Tim Whitehead — Author">
+  <section class="space-y-6">
+    <h1 class="text-3xl font-bold tracking-tight">Welcome</h1>
+    <p class="text-lg text-gray-600 leading-relaxed">
+      I'm Tim Whitehead, author of the Steadfast Universe — a novel series exploring
+      faith, resilience, and the cost of standing firm. This site is where I share
+      development logs, short fiction, and updates on the journey toward publication.
+    </p>
+    <div class="pt-4">
+      <h2 class="text-xl font-semibold mb-4">Latest Posts</h2>
+      {posts.length === 0 ? (
+        <p class="text-gray-500 italic">Posts coming soon.</p>
+      ) : (
+        <ul class="space-y-4">
+          {posts.map((post) => (
+            <li>
+              <a href={`/blog/${post.id}`} class="block group">
+                <h3 class="font-semibold group-hover:text-gray-600 transition-colors">
+                  {post.data.title}
+                </h3>
+                <time class="text-sm text-gray-500" datetime={post.data.pubDate.toISOString()}>
+                  {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </time>
+                <p class="text-gray-600 mt-1">{post.data.description}</p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  </section>
+</BaseLayout>

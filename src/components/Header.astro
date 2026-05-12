@@ -1,0 +1,31 @@
+---
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/steadfast', label: 'Steadfast Universe' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="border-b border-gray-200">
+  <nav class="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
+    <a href="/" class="text-xl font-semibold tracking-tight">Tim Whitehead</a>
+    <ul class="flex gap-6 text-sm">
+      {navLinks.map(({ href, label }) => (
+        <li>
+          <a
+            href={href}
+            class:list={[
+              'hover:text-gray-600 transition-colors',
+              { 'font-semibold': currentPath === href || (href !== '/' && currentPath.startsWith(href)) },
+            ]}
+          >
+            {label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>
