@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+---
+
+<BaseLayout title="Search — Brooks Marshall">
+  <PageHeader title="Search" subtitle="Find posts, stories, and pages across the site." />
+  <div id="search"></div>
+  <link href="/author-website/pagefind/pagefind-ui.css" rel="stylesheet" />
+  <script is:inline src="/author-website/pagefind/pagefind-ui.js"></script>
+  <script is:inline>
+    window.addEventListener('DOMContentLoaded', () => {
+      new PagefindUI({
+        element: '#search',
+        showSubResults: true,
+        showImages: false,
+      });
+    });
+  </script>
+  <style is:global>
+    :root {
+      --pagefind-ui-primary: #C4923A;
+      --pagefind-ui-text: #E8E0D6;
+      --pagefind-ui-background: #252220;
+      --pagefind-ui-border: #3A3430;
+      --pagefind-ui-tag: #3A3430;
+      --pagefind-ui-border-width: 1px;
+      --pagefind-ui-border-radius: 0.5rem;
+      --pagefind-ui-font: "Bitter", "Georgia Pro", Georgia, serif;
+    }
+    html.light {
+      --pagefind-ui-text: #1A1614;
+      --pagefind-ui-background: #EBE4D8;
+      --pagefind-ui-border: #D4CABB;
+      --pagefind-ui-tag: #D4CABB;
+    }
+  </style>
+</BaseLayout>
